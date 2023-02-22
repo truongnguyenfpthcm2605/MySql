@@ -1,0 +1,20 @@
+create table Nhan_vien1 like nhan_vien;
+create table nhan_vien2 select* from nhan_vien;
+create table nhan_vien3 select ma_nv,ten_nv from nhan_vien;
+rename table phong_ban to don_vi;
+alter table nhan_vien change column dia_chi noi_cu_tru varchar(255);
+alter table nhan_vien add column thuong double(9,2);
+alter table nhan_vien1 add primary key(ma_nv);
+alter table nhan_vien1 add constraint fk_mapb foreign key(ma_pb) references don_vi(ma_pb);
+alter table nhan_vien1 drop primary key;
+alter table nhan_vien1 modify column ho_nv varchar(255) not null;
+alter table nhan_vien1 modify column ho_nv varchar(255) ;
+alter table nhan_vien1 alter gioi_tinh set default 1;
+alter table truong_phong drop index ma_nv;
+alter table nhan_vien1 add unique(ma_nv);
+alter table nhan_vien1 drop index ma_nv;
+alter table nhan_vien1 add constraint ck  check (luong>500);
+alter table nhan_vien1 drop foreign key fk_mapb;
+alter table nhan_vien1 drop   ck;
+alter table nhan_vien1 drop column ngay_sinh;
+

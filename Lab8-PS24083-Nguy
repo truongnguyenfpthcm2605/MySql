@@ -1,0 +1,6 @@
+use quanlybanhang;
+
+-- them khoa muc cho ten san pham
+alter table san_pham add unique(tenSanPham);
+-- them khoa mua tren cot email cua khach hang
+alter table khach_hang add unique(Email);
